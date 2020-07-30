@@ -13,6 +13,9 @@ public class MainField extends JFrame {
         setBounds(100, 100, 800, 820);
         setResizable(false);
         setVisible(true);
+
+        getContentPane().setBackground(new Color(230, 186, 153));
+
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -24,7 +27,7 @@ public class MainField extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);  // fixes the immediate problem.
         Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(new Color(10, 100, 20));
+        g2.setColor(new Color(125, 59, 10));
 
         for (int i = 0; i < 8; i++) {
             Line2D lineVertical = new Line2D.Float(100 * i, 0, 100 * i, 820);
