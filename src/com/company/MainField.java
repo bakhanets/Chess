@@ -30,12 +30,6 @@ public class MainField extends JFrame {
         g2.setColor(new Color(125, 59, 10));
 
         for (int i = 0; i < 8; i++) {
-            Line2D lineVertical = new Line2D.Float(100 * i, 0, 100 * i, 820);
-            g2.draw(lineVertical);
-
-            Line2D lineHorizontal = new Line2D.Float(0, 100 * i+20, 800, 100 * i + 20);
-            g2.draw(lineHorizontal);
-
             for (int j = 0; j < 8; j++) {
                 if ((j + i) % 2 != 0)
                     g2.fillRect(100 * i, j * 100 + 20, 800 / 8, 820 / 8);
