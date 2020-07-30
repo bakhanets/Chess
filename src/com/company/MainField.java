@@ -38,11 +38,5 @@ public class MainField extends JFrame {
                     g2.fillRect(100 * i, j * 100 + 20, 800 / 8, 820 / 8);
             }
         }
-
-        int squareX = 50;
-        int squareY = 50;
-        int squareW = 20;
-        int squareH = 20;
-
     }
 }
