@@ -1,38 +1,53 @@
 package com.company.pieces;
 
-class Pair<F, S> {
-    private F first;
-    private S second;
+enum SquareColor {
+    White,
+    Black
+}
 
-    public Pair(F first, S second) {
+class Square<F, S> {
+    private F _first;
+    private S _second;
+    private SquareColor _color;
+
+    public Square(F first, S second, SquareColor color) {
         assert first != null;
         assert second != null;
 
-        this.first = first;
-        this.second = second;
+        this._first = first;
+        this._second = second;
     }
 
-    public F first() { return first; }
-    public S second() { return second; }
+    public F first()  { return _first; }
+    public S second() { return _second; }
 
     public void set(F first, S second) {
-        this.first = first;
-        this.second = second;
+        this._first = first;
+        this._second = second;
     }
 }
 
-public abstract class Piece implements Cloneable {
-    Piece(int x, int y) {
-        _currPosition = new Pair<Integer, Integer>(x, y);
+public class Piece implements Cloneable {
+    private boolean isKing  = false;
+    private String _imgPath = "";
+
+    private SquareColor              _color;
+    private Square<Integer, Integer> _currPosition;
+
+    Piece(int x, int y, SquareColor color) {
+        _currPosition = new Square<Integer, Integer>(x, y, color);
+        // TODO загрузить пикчу.
     }
 
-    public boolean move(int x, int y) {
-        // TODO: move logic
+    public boolean move(int newX, int newY, SquareColor newSquareColor) {
+        if (newSquareColor == _color) {
+            return false;
+        }
 
         return false;
     }
 
-    public void setColor(int color) {
+    public void setColor(SquareColor color) {
         _color = color;
     }
 
@@ -40,7 +55,7 @@ public abstract class Piece implements Cloneable {
         _imgPath = imgPath;
     }
 
-    public int getColor() {
+    public SquareColor getColor() {
         return _color;
     }
 
@@ -52,10 +67,4 @@ public abstract class Piece implements Cloneable {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
-    private int _color = 0;
-    private String _imgPath = "";
-    private Pair<Integer, Integer> _currPosition;
-    private boolean isKing = false;
 }
-
