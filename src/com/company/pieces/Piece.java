@@ -1,6 +1,31 @@
 package com.company.pieces;
 
+class Pair<F, S> {
+    private F first;
+    private S second;
+
+    public Pair(F first, S second) {
+        assert first != null;
+        assert second != null;
+
+        this.first = first;
+        this.second = second;
+    }
+
+    public F first() { return first; }
+    public S second() { return second; }
+
+    public void set(F first, S second) {
+        this.first = first;
+        this.second = second;
+    }
+}
+
 public abstract class Piece implements Cloneable {
+    Piece(int x, int y) {
+        _currPosition = new Pair<Integer, Integer>(x, y);
+    }
+
     public void move(int x, int y) {
         // TODO: move logic
     }
@@ -28,5 +53,6 @@ public abstract class Piece implements Cloneable {
 
     private int _color;
     private String _imgPath;
+    Pair<Integer, Integer> _currPosition;
 }
 
