@@ -26,8 +26,10 @@ public abstract class Piece implements Cloneable {
         _currPosition = new Pair<Integer, Integer>(x, y);
     }
 
-    public void move(int x, int y) {
+    public boolean move(int x, int y) {
         // TODO: move logic
+
+        return false;
     }
 
     public void setColor(int color) {
@@ -51,8 +53,9 @@ public abstract class Piece implements Cloneable {
         return super.clone();
     }
 
-    private int _color;
-    private String _imgPath;
-    Pair<Integer, Integer> _currPosition;
+    private int _color = 0;
+    private String _imgPath = "";
+    private Pair<Integer, Integer> _currPosition;
+    private boolean isKing = false;
 }
 
