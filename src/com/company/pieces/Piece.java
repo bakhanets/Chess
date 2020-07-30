@@ -18,8 +18,8 @@ class Square<F, S> {
         this._second = second;
     }
 
-    public F first()  { return _first; }
-    public S second() { return _second; }
+    public F x()  { return _first; }
+    public S y() { return _second; }
 
     public void set(F first, S second) {
         this._first = first;
@@ -40,11 +40,14 @@ public class Piece implements Cloneable {
     }
 
     public boolean move(int newX, int newY, SquareColor newSquareColor) {
-        if (newSquareColor == _color) {
+        if (newSquareColor != _color) {
             return false;
         }
 
-        return false;
+        var x = Math.abs(_currPosition.x() - newX);
+        var y = Math.abs(_currPosition.y() - newY);
+
+        return x + y == 1 || (x + y == -1 && isKing);
     }
 
     public void setColor(SquareColor color) {
