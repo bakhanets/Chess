@@ -1,6 +1,7 @@
 package com.company.pieces;
 
 class Pair<F, S> {
+
     private F first;
     private S second;
 
@@ -12,8 +13,13 @@ class Pair<F, S> {
         this.second = second;
     }
 
-    public F first() { return first; }
-    public S second() { return second; }
+    public F first() {
+        return first;
+    }
+
+    public S second() {
+        return second;
+    }
 
     public void set(F first, S second) {
         this.first = first;
@@ -22,6 +28,12 @@ class Pair<F, S> {
 }
 
 public abstract class Piece implements Cloneable {
+
+    private int _color = 0;
+    private String _imgPath = "";
+    private Pair<Integer, Integer> _currPosition;
+    private boolean isKing = false;
+
     Piece(int x, int y) {
         _currPosition = new Pair<Integer, Integer>(x, y);
     }
@@ -52,10 +64,5 @@ public abstract class Piece implements Cloneable {
     protected Object clone() throws CloneNotSupportedException {
         return super.clone();
     }
-
-    private int _color = 0;
-    private String _imgPath = "";
-    private Pair<Integer, Integer> _currPosition;
-    private boolean isKing = false;
 }
 
