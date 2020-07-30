@@ -8,9 +8,12 @@ import java.awt.event.MouseEvent;
 import java.awt.geom.Line2D;
 
 public class MainField extends JFrame {
+    public static final int FRAME_WIDTH  = 800;
+    public static final int FRAME_HEIGHT = 820;
+
     MainField() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 800, 820);
+        setBounds(100, 100, FRAME_WIDTH, FRAME_HEIGHT);
         setResizable(false);
         setVisible(true);
 
@@ -32,7 +35,7 @@ public class MainField extends JFrame {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if ((j + i) % 2 != 0)
-                    g2.fillRect(100 * i, j * 100 + 20, 800 / 8, 820 / 8);
+                    g2.fillRect(100 * i, j * 100 + 20, FRAME_WIDTH / 8, FRAME_HEIGHT / 8);
             }
         }
     }
